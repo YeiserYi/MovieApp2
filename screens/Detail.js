@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import PlayButton from '../components/PlayButton';
 import StarRating from 'react-native-star-rating';
-import {getMovie} from '../services/service';
+import {getMovie} from '../services/servicio';
 import dateFormat from 'dateformat';
 
 
