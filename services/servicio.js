@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiUrl = 'https://api.themoviedb.org/3';
-const apiKey = '';
+const apiKey = '4966663cb66931459c3a6e5aa62da69f';
 
 // Obtener la categoría de películas populares /GET
 export const getPopularMovies = async () => {
