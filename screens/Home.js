@@ -1,26 +1,25 @@
-
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   View,
   StyleSheet,
   Dimensions,
   ScrollView,
-} from 'react-native';
+} from "react-native";
 import {
   getPopularMovies,
   getUpcomingMovies,
   getPopularTv,
   getFamilyMovies,
   getDocumentaryMovies,
-} from '../services/service';
-import {SliderBox} from 'react-native-image-slider-box';
-import react from 'react';
-import List from '../components/List';
-import Error from '../components/Error';
+} from "../services/servicio";
+import { SliderBox } from "react-native-image-slider-box";
+import react from "react";
+import List from "../components/List";
+import Error from "../components/Error";
 
-const dimentions = Dimensions.get('screen');
-const Home = ({navigation}) => {
+const dimentions = Dimensions.get("screen");
+const Home = ({ navigation }) => {
   const [moviesImages, setMoviesImages] = useState();
   const [popularMovies, setPopularMovies] = useState();
   const [popularTv, setPopularTv] = useState();
@@ -51,9 +50,9 @@ const Home = ({navigation}) => {
           documentaryMoviesData,
         ]) => {
           const moviesImagesArray = [];
-          upcomingMoviesData.forEach(movie => {
+          upcomingMoviesData.forEach((movie) => {
             moviesImagesArray.push(
-              'https://image.tmdb.org/t/p/w500' + movie.poster_path,
+              "https://image.tmdb.org/t/p/w500" + movie.poster_path
             );
           });
 
@@ -62,7 +61,7 @@ const Home = ({navigation}) => {
           setPopularTv(popularTvData);
           setFamilyMovies(familyMoviesData);
           setDocumentaryMovies(documentaryMoviesData);
-        },
+        }
       )
       .catch(() => {
         setError(true);
@@ -93,7 +92,7 @@ const Home = ({navigation}) => {
             <View style={styles.carousel}>
               <List
                 navigation={navigation}
-                title={'Películas populares entre el público'}
+                title={"Películas populares entre el público"}
                 content={popularMovies}
               />
             </View>
@@ -103,7 +102,7 @@ const Home = ({navigation}) => {
             <View style={styles.carousel}>
               <List
                 navigation={navigation}
-                title={'Programas de TV populares'}
+                title={"Programas de TV populares"}
                 content={popularTv}
               />
             </View>
@@ -113,7 +112,7 @@ const Home = ({navigation}) => {
             <View style={styles.carousel}>
               <List
                 navigation={navigation}
-                title={'Películas familiares'}
+                title={"Películas familiares"}
                 content={familyMovies}
               />
             </View>
@@ -123,7 +122,7 @@ const Home = ({navigation}) => {
             <View style={styles.carousel}>
               <List
                 navigation={navigation}
-                title={'Documentales'}
+                title={"Documentales"}
                 content={documentaryMovies}
               />
             </View>
@@ -139,16 +138,16 @@ const Home = ({navigation}) => {
 const styles = StyleSheet.create({
   sliderContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   sliderStyle: {
     height: 0,
   },
   carousel: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
